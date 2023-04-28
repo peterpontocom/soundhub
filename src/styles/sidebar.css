@@ -1,0 +1,68 @@
+aside {
+  height: 100vh;
+  width: 30%;
+  background-color: #353535;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+aside::-webkit-scrollbar {
+  width: 7px;
+}
+
+aside::-webkit-scrollbar-thumb {
+  background-color: #3d3d3d;
+  border-radius: 99999px;
+}
+
+aside::-webkit-slider-runnable-track {
+  background-color: #181818;
+}
+
+.top {
+  padding: 2.25rem;
+}
+
+.field-input {
+  padding: 1.25rem;
+  background-color: #00000096;
+
+}
+
+.field-input svg {
+  color: #fff;
+}
+
+.field-input input {
+  color: #fff;
+}
+
+.title {
+  padding: 0 2.25rem;
+}
+
+.dots {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  padding: 1rem;
+}
+
+.dots .dot {
+  height: .3rem;
+  width: .3rem;
+  background-color: #fff;
+  border-radius: 99999px;
+}
+
+.dots .dot:nth-child(1), .dot:nth-child(3) {
+  background-color: #868686;
+}
+
+.menuItemActive { 
+  border-left: 4px solid #3dce54;
+}
+
+.menuItemLink:hover {
+  background-color: var(--light-gray);
+}

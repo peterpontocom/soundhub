@@ -1,0 +1,93 @@
+section.currentMusicSection {
+  height: 60%;
+  width: 100%;
+  background: #181818 url('../assets/cover/imagine_dragons.jpg') center center no-repeat;
+  background-size: cover;
+  position: relative;
+  padding: 1rem 3rem;
+}
+
+.pontinho-verde {
+  display: inline-block;
+  height: 5px;
+  width: 5px;
+  background-color: var(--light-green);
+  border-radius: 99999px;
+
+}
+
+.username {
+  background-color: #aaaaaa3d;
+  padding: .2rem .5rem;
+}
+
+.artist {
+  transform: translateY(9rem);
+}
+
+.artist-content .artist-name {
+  display: block;
+  font-size: 3em;
+  font-weight: bold;
+}
+
+.artist-content .artist-name i svg{
+  background-color: #23c423e1;
+  color: #00ff00;
+  border-radius: 99999px;
+}
+
+.artist-content a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  border-radius: 1rem;
+}
+
+.artist-content a:first-child {
+  background-color: var(--light-green);
+  height: 4rem;
+  width: 8rem;
+  margin-right: 1rem;
+}
+
+.artist-content a:last-child { 
+  background-color: #aaaaaa3d;
+  height: 4rem;
+  width: 11rem;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  color: #fff;
+  padding: 1rem 3rem;
+}
+
+footer menu nav{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+footer ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+
+
+footer ul:first-child li a {
+  padding: .5rem 2rem;
+} 
+
+footer ul:first-child li:first-child a {
+  border-bottom: .5rem solid #00ff0067;
+  color: #00ff00;
+}

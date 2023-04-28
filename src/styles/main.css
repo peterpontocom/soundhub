@@ -1,0 +1,112 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+  font-size: 62.5%;
+  --dark-green: #4a9454;
+  --normal-green: #3dce54;
+  --light-green: #33c75a;
+  --light-gray: #444444;
+  --normal-gray: #2f2f2f;
+  --dark-gray: #181818;
+}
+/*-----colors--------*/
+/*------green---------*/
+.text-dark-green {
+  color: var(--dark-green);
+}
+.bg-dark-green {
+  background-color: var(--dark-green);
+}
+
+.text-normal-green {
+  color: var(--normal-green);
+}
+.bg-normal-green {
+  background-color: var(--normal-green);
+}
+
+.text-light-green {
+  color: var(--light-green);
+}
+.bg-light-green {
+  background-color: var(--light-green);
+}
+/*------gray-------*/
+.text-dark-gray {
+  color: var(--dark-gray);
+}
+.bg-dark-gray {
+  background-color: var(--dark-gray);
+}
+
+.text-normal-gray {
+  color: var(--normal-gray);
+}
+.bg-normal-gray {
+  background-color: var(--normal-gray);
+}
+
+.text-light-gray {
+  color: var(--light-gray);
+}
+.bg-light-gray {
+  background-color: var(--light-gray);
+}
+
+.text-gray {
+  color: #979797;
+}
+
+.text-dark-white {
+  color: #fff;
+}
+
+body {
+  font-size: 1.6rem;
+  overflow: hidden;
+}
+
+html,
+body {
+  height: 100vh;
+  width: 100vw;
+  background-color: #181818;
+}
+
+a,
+input,
+select,
+textarea,
+button,
+input {
+  all: unset;
+}
+
+a,
+button {
+  cursor: pointer;
+}
+
+.right {
+  height: 100vh;
+  width: 100%;
+}
+
+.right::-webkit-scrollbar {
+  width: 7px;
+}
+
+.right::-webkit-scrollbar-thumb {
+  background-color: #535353;
+  border-radius: 99999px;
+}
+
+.right::-webkit-slider-runnable-track {
+  background-color: #080808;
+}

@@ -1,0 +1,36 @@
+.playerContainer {
+  width: 100%;
+  background-image: #252525;
+}
+
+.playing,.music-header {
+  width: 90%;
+  margin-inline: auto;
+}
+
+.music-header {
+  padding: 1.5rem 0;
+}
+
+.btn-like {
+  cursor: pointer;
+}
+
+.container-music {
+  border-bottom: .1rem solid #494949;
+  padding: 1rem 0;
+  cursor: pointer;
+}
+
+.container-music:hover {
+  background-image: linear-gradient(to right, transparent, #cccccc6e, #ffffff33);
+}
+
+.play-cmd {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  background-color: #252525;
+  width: 100%;
+  padding: 1rem 2.5rem;
+}
