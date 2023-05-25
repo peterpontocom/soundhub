@@ -3,10 +3,36 @@ import "../styles/main.css"
 import { AllMusic } from "./AllMusic"
 import divide from "../assets/music_icon/divide.jfif"
 import imaginedragons from "../assets/music_icon/Imagine_Dradons_album.jfif"
-import { TimeLine } from "./TimeLine"
 import enemy from "../assets/music/enemy_imagine_drogons.mp3"
+import { useRef, useState, useEffect } from "react"
 
 export function Player() {
+  const audioRef = useRef<HTMLAudioElement>(null)
+  const [progresso, setProgress] = useState(0)
+
+  const btnPlay = document.querySelector("#btnPlay")
+  const btnPause = document.querySelector("#btnPause")
+
+  const progressBar = document.querySelector(".progressbar")
+
+  const playAudio = () => {
+    audioRef.current.play()
+    btnPlay.style.display = "none"
+    btnPause.style.display = "block"
+  }
+  const pauseAudio = () => {
+    audioRef.current.pause()
+    btnPause.style.display = "none"
+    btnPlay.style.display = "block"
+  }
+
+  const timer = () => {
+    console.log(setProgress(audioRef?.currentTime))
+    progressBar.style.width = `${setProgress(
+      (audioRef?.currentTime / audioRef?.duration) * 100
+    )}%`
+  }
+
   return (
     <section className="playerContainer bg-dark-gray h-100 text-light">
       <header className="music-header d-flex justify-content-between align-items-center">
@@ -174,22 +200,13 @@ export function Player() {
       </section>
       <section className="play-cmd">
         <div className="play-cmd-top d-flex justify-content-between">
-          <div className="d-flex gap-2 align-items-center text-normal-green">
-            <a href="#" download>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                fill="currentColor"
-                className="bi bi-download"
-                viewBox="0 0 16 16"
-              >
-                <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z" />
-                <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z" />
-              </svg>
-              {" $0.99 "}
-            </a>
+          <div className="d-flex flex-column">
+            <strong className="currentMusic fs-1">Enemy</strong>
+            <small className="currentArtist text-light-green">
+              Imagine Dragons
+            </small>
           </div>
+
           <div className="d-flex gap-4 align-items-center">
             <button>
               <svg
@@ -203,7 +220,7 @@ export function Player() {
                 <path d="M.5 3.5A.5.5 0 0 0 0 4v8a.5.5 0 0 0 1 0V8.753l6.267 3.636c.54.313 1.233-.066 1.233-.697v-2.94l6.267 3.636c.54.314 1.233-.065 1.233-.696V4.308c0-.63-.693-1.01-1.233-.696L8.5 7.248v-2.94c0-.63-.692-1.01-1.233-.696L1 7.248V4a.5.5 0 0 0-.5-.5z" />
               </svg>
             </button>
-            <button className="btn-player">
+            <button className="btn-player" id="btnPlay" onClick={playAudio}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="35"
@@ -212,7 +229,27 @@ export function Player() {
                 className="bi bi-play-circle-fill"
                 viewBox="0 0 16 16"
               >
-                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814l-3.5-2.5z" />
+                <path
+                  d={
+                    "M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814l-3.5-2.5z"
+                  }
+                />
+              </svg>
+            </button>
+            <button
+              className="btn-player btnPause"
+              id="btnPause"
+              onClick={pauseAudio}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="35"
+                height="35"
+                fill="currentColor"
+                className="bi bi-pause-circle-fill"
+                viewBox="0 0 16 16"
+              >
+                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM6.25 5C5.56 5 5 5.56 5 6.25v3.5a1.25 1.25 0 1 0 2.5 0v-3.5C7.5 5.56 6.94 5 6.25 5zm3.5 0c-.69 0-1.25.56-1.25 1.25v3.5a1.25 1.25 0 1 0 2.5 0v-3.5C11 5.56 10.44 5 9.75 5z" />
               </svg>
             </button>
             <button>
@@ -228,7 +265,7 @@ export function Player() {
               </svg>
             </button>
           </div>
-          <div className="d-flex align-items-center gap-2">
+          <div className="d-flex align-items-center gap-4">
             <button>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -261,15 +298,36 @@ export function Player() {
                 <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z" />
               </svg>
             </button>
+            <div className="d-flex gap-2 align-items-center text-normal-green">
+              <a href="#" download>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  className="bi bi-download"
+                  viewBox="0 0 16 16"
+                >
+                  <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z" />
+                  <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z" />
+                </svg>
+                {" $0.99 "}
+              </a>
+            </div>
           </div>
         </div>
         <div className="musicPlaying">
-          <audio src={enemy} className="playplay"></audio>
-          <TimeLine />
-          
+          <audio
+            src={enemy}
+            id="music"
+            ref={audioRef}
+            onTimeUpdate={timer}
+          ></audio>
+          <div className="timeline">
+            <div className="progressbar"></div>
+          </div>
         </div>
       </section>
     </section>
   )
 }
-
